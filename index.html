@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依頼フォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #d8bfd8, #ffc0cb);
+        }
+        form {
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="requestForm">
+        <h1>依頼フォーム</h1>
+        <label for="nickname">ニックネーム</label>
+        <input type="text" id="nickname" placeholder="ニックネームを入力" required>
+
+        <label for="id">ID</label>
+        <input type="text" id="id" placeholder="IDを入力" required>
+
+        <label for="details">依頼内容</label>
+        <textarea id="details" placeholder="依頼内容を入力" required></textarea>
+
+        <button type="button" onclick="previewForm()">プレビュー</button>
+    </form>
+
+    <script>
+        function previewForm() {
+            const nickname = document.getElementById("nickname").value;
+            const id = document.getElementById("id").value;
+            const details = document.getElementById("details").value;
+
+            if (!nickname || !id || !details) {
+                alert("全ての項目を入力してください。");
+                return;
+            }
+
+            alert(`プレビュー:\nニックネーム: ${nickname}\nID: ${id}\n依頼内容:\n${details}`);
+        }
+    </script>
+</body>
+</html>
